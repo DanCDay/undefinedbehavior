@@ -1,0 +1,43 @@
+{{ define "main" }}
+<article class="post wrap">
+  <header class="post-header">
+    <div class="post-header__struct">
+      <span class="tok-kw">struct</span> <span class="tok-type">{{ .Title | plainify | title | replaceRE "[^A-Za-z0-9]" "" }}</span> <span class="tok-punct">{</span>
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-flags">
+      <span class="flag">-Wdate={{ .Date.Format "2006-01-02" }}</span>
+      <span class="flag">-Wreading-time={{ .ReadingTime }}min</span>
+      {{ with .Params.lesson }}<span class="flag">-Wlesson={{ . }}</span>{{ end }}
+      {{ with .Params.tags }}<span class="flag">-Wtags={{ delimit . "," }}</span>{{ end }}
+    </div>
+    {{ with .Params.resources }}
+    <div class="post-resources">
+      <span class="tok-comment">// resources referenced</span>
+      <ul>
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <div class="post-header__struct post-header__struct--close">
+    <span class="tok-punct">};</span> <span class="tok-comment">// end {{ .Title | plainify | title | replaceRE "[^A-Za-z0-9]" "" }}</span>
+  </div>
+
+  {{ with .Params.tags }}
+  <div class="diag__includes post-tags">
+    {{ range . }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="include-tag">#include &lt;{{ . }}&gt;</a>{{ end }}
+  </div>
+  {{ end }}
+
+  <nav class="post-pager">
+    {{ with .PrevInSection }}<a class="pager-link pager-link--prev" href="{{ .Permalink }}">&larr; {{ .Title }}</a>{{ end }}
+    {{ with .NextInSection }}<a class="pager-link pager-link--next" href="{{ .Permalink }}">{{ .Title }} &rarr;</a>{{ end }}
+  </nav>
+</article>
+{{ end }}

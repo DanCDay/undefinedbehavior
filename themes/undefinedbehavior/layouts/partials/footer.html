@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="footer-line"><span class="tok-comment">// learning C++, one lesson at a time</span></div>
+    <div class="footer-links">
+      <a href="https://www.learncpp.com" target="_blank" rel="noopener">learncpp.com</a>
+      <span class="sep">·</span>
+      <a href="https://www.youtube.com/@TheCherno" target="_blank" rel="noopener">The Cherno</a>
+      {{ with .Site.Params.github }}<span class="sep">·</span><a href="{{ . }}" target="_blank" rel="noopener">source</a>{{ end }}
+      <span class="sep">·</span>
+      <a href="{{ "/index.xml" | relURL }}">rss</a>
+    </div>
+    <div class="footer-exit">$ exit 0</div>
+  </div>
+</footer>

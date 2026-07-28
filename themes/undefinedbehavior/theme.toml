@@ -1,0 +1,4 @@
+name = "Undefined Behavior"
+license = "MIT"
+description = "A terminal/compiler-diagnostics themed Hugo theme for a C++ learning log"
+homepage = "https://undefinedbehavior.co.uk"

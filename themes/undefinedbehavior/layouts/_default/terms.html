@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="wrap log-section">
+  <h1 class="section-heading"><span class="tok-comment">//</span> {{ .Title }}</h1>
+  <div class="tag-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+      <a class="include-tag include-tag--big" href="{{ .Page.Permalink }}">
+        #include &lt;{{ .Page.Title }}&gt; <span class="tok-dim">({{ .Count }})</span>
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

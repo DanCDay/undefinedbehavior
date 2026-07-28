@@ -1,0 +1,21 @@
+baseURL = "https://undefinedbehavior.co.uk/"
+languageCode = "en-gb"
+title = "Undefined Behavior"
+theme = "undefinedbehavior"
+enableRobotsTXT = true
+
+[params]
+  description = "a Junior QA Analyst's notes on learning C++, following learncpp.com and The Cherno"
+  github = "https://github.com/DanCDay/undefinedbehavior"
+  rss = true
+
+[taxonomies]
+  tag = "tags"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  style = "github-dark"
+  lineNos = false
+  codeFences = true

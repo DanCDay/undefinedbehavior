@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Type" "posts" }}
+{{ $count := len $posts }}
+{{ $tagCount := len .Site.Taxonomies.tags }}
+
+<section class="hero">
+  <div class="wrap">
+    <pre class="hero__terminal" aria-hidden="false"><code><span class="tok-prompt">$</span> <span class="glitch-once" data-text="g++ -std=c++20 dan.cpp -o who_is_dan">g++ -std=c++20 dan.cpp -o who_is_dan</span>
+<span class="tok-dim">dan.cpp: In journey ‘learning_cpp’:</span>
+<span class="tok-note">dan.cpp:1: note:</span> Junior QA Analyst in the games industry, learning C++
+<span class="tok-warn">dan.cpp:2: warning:</span> {{ .Site.Params.description }}
+<span class="tok-dim">dan.cpp: following</span> <span class="tok-note">learncpp.com</span><span class="tok-dim"> and</span> <span class="tok-note">The Cherno</span><span class="tok-dim">, lesson by lesson</span>
+
+compilation succeeded: <span class="tok-note">{{ $count }} post{{ if ne $count 1 }}s{{ end }}</span>, <span class="tok-warn">{{ $tagCount }} tag{{ if ne $tagCount 1 }}s{{ end }}</span>, <span class="tok-err">0 errors</span> generated.</code></pre>
+  </div>
+</section>
+
+<section class="wrap log-section">
+  <h1 class="section-heading"><span class="tok-comment">//</span> build log</h1>
+  <div class="diag-list">
+    {{ range first 10 $posts.ByDate.Reverse }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+  {{ if gt $count 10 }}
+  <a class="more-link" href="{{ "/posts/" | relURL }}">$ ls posts/ --all &rarr;</a>
+  {{ end }}
+</section>
+{{ end }}

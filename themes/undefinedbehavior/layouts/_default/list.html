@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="wrap log-section">
+  <h1 class="section-heading"><span class="tok-comment">//</span> {{ .Title }}</h1>
+  {{ with .Content }}<div class="list-intro">{{ . }}</div>{{ end }}
+  <div class="diag-list">
+    {{ range .Pages.ByDate.Reverse }}
+      {{ partial "post-card.html" . }}
+    {{ else }}
+    <p class="tok-dim">// nothing here yet</p>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

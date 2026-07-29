@@ -1,6 +1,8 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Type" "posts" }}
 {{ $count := len $posts }}
+{{ $projects := where .Site.RegularPages "Type" "projects" }}
+{{ $projectCount := len $projects }}
 {{ $tagCount := len .Site.Taxonomies.tags }}
 
 <section class="hero">
@@ -11,7 +13,7 @@
 <span class="tok-warn">dan.cpp:2: warning:</span> {{ .Site.Params.description }}
 <span class="tok-dim">dan.cpp: following</span> <span class="tok-note">learncpp.com</span><span class="tok-dim"> and</span> <span class="tok-note">The Cherno</span><span class="tok-dim">, lesson by lesson</span>
 
-compilation succeeded: <span class="tok-note">{{ $count }} post{{ if ne $count 1 }}s{{ end }}</span>, <span class="tok-warn">{{ $tagCount }} tag{{ if ne $tagCount 1 }}s{{ end }}</span>, <span class="tok-err">0 errors</span> generated.</code></pre>
+compilation succeeded: <span class="tok-note">{{ $count }} post{{ if ne $count 1 }}s{{ end }}</span>, <span class="tok-warn">{{ $projectCount }} project{{ if ne $projectCount 1 }}s{{ end }}</span>, <span class="tok-note">{{ $tagCount }} tag{{ if ne $tagCount 1 }}s{{ end }}</span>, <span class="tok-err">0 errors</span> generated.</code></pre>
   </div>
 </section>
 

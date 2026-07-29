@@ -84,6 +84,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   padding: 1.1rem 1.5rem;
 }
 .prompt-logo {
+  display: inline-flex;
+  align-items: baseline;
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--text-bright);
@@ -98,8 +100,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   width: 0.55em;
   height: 1em;
   background: var(--accent-warn);
+  position: relative; top: 2px;
   margin-left: 2px;
-  vertical-align: text-bottom;
   animation: blink 1.1s steps(1) infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
@@ -204,6 +206,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .diag--warning { border-left-color: var(--accent-warn); }
 .diag--note { border-left-color: var(--accent-note); }
+.diag--project { border-left-color: var(--accent-err); }
+.diag--project .diag__level { color: var(--accent-err); font-weight: 700; }
 
 .diag__head { font-size: 0.82rem; margin-bottom: 0.35rem; }
 .diag--warning .diag__level { color: var(--accent-warn); font-weight: 700; }
@@ -361,4 +365,50 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .site-header__inner { flex-direction: column; align-items: flex-start; }
   .diag__body { gap: 0.5rem; }
   .post-title { font-size: 1.5rem; }
+}
+
+/* ---------------- project cards ---------------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.project-card__file {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+.project-card__decl { font-size: 0.95rem; }
+.project-card__decl .tok-type a { color: var(--accent-note); }
+.project-card__decl .tok-type a:hover { color: var(--accent-warn); }
+.project-card__body {
+  margin: 0.5rem 0 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+.project-card__member { color: var(--text); white-space: pre; }
+.project-card__summary {
+  margin-top: 0.5rem;
+  color: var(--text-dim);
+  font-style: italic;
+  white-space: normal;
+}
+.project-card__links {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
 }

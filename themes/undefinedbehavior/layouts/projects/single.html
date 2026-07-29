@@ -1,0 +1,35 @@
+{{ define "main" }}
+<article class="post wrap">
+  <header class="post-header">
+    <div class="post-header__struct">
+      <span class="tok-kw">class</span> <span class="tok-type">{{ .Title | plainify | title | replaceRE "[^A-Za-z0-9+]" "" }}</span> <span class="tok-punct">{</span>
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-flags">
+      <span class="flag">-Wstatus={{ .Params.status | default "unknown" }}</span>
+      {{ with .Params.tags }}<span class="flag">-Wstack={{ delimit . "," }}</span>{{ end }}
+      <span class="flag">-Wupdated={{ .Date.Format "2006-01-02" }}</span>
+    </div>
+    {{ if or .Params.repo .Params.demo }}
+    <div class="project-links">
+      {{ with .Params.repo }}<a href="{{ . }}" target="_blank" rel="noopener" class="include-tag include-tag--big">github &rarr;</a>{{ end }}
+      {{ with .Params.demo }}<a href="{{ . }}" target="_blank" rel="noopener" class="include-tag include-tag--big">live demo &rarr;</a>{{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.tags }}
+  <div class="diag__includes post-tags">
+    {{ range . }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="include-tag">#include &lt;{{ . }}&gt;</a>{{ end }}
+  </div>
+  {{ end }}
+
+  <div class="post-header__struct post-header__struct--close">
+    <span class="tok-punct">};</span> <span class="tok-comment">// end {{ .Title | plainify | title | replaceRE "[^A-Za-z0-9+]" "" }}</span>
+  </div>
+</article>
+{{ end }}

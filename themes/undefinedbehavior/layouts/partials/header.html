@@ -6,6 +6,7 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="{{ "/posts/" | relURL }}"><span class="nav-cmd">ls</span> posts/</a>
+      <a href="{{ "/projects/" | relURL }}"><span class="nav-cmd">ls</span> projects/</a>
       <a href="{{ "/tags/" | relURL }}"><span class="nav-cmd">grep</span> -r tags/</a>
       <a href="{{ "/about/" | relURL }}"><span class="nav-cmd">cat</span> about.md</a>
       {{ with .Site.Params.rss }}<a href="{{ "/index.xml" | relURL }}"><span class="nav-cmd">tail</span> -f feed</a>{{ end }}

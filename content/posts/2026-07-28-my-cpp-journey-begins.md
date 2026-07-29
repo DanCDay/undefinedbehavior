@@ -1,5 +1,5 @@
 ---
-title: "My Cpp Journey Begins"
+title: "My C++ Journey Begins"
 date: 2026-07-28T21:21:24+01:00
 draft: false
 lesson: ""            # e.g. "1.6" — the learncpp.com lesson number, leave blank if not applicable

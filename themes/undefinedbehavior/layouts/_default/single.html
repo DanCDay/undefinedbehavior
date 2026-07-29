@@ -2,7 +2,7 @@
 <article class="post wrap">
   <header class="post-header">
     <div class="post-header__struct">
-      <span class="tok-kw">struct</span> <span class="tok-type">{{ .Title | plainify | title | replaceRE "[^A-Za-z0-9]" "" }}</span> <span class="tok-punct">{</span>
+      <span class="tok-kw">struct</span> <span class="tok-type">{{ .Title | plainify | title | replaceRE "\\s+" "" }}</span> <span class="tok-punct">{</span>
     </div>
     <h1 class="post-title">{{ .Title }}</h1>
     <div class="post-flags">
@@ -26,7 +26,7 @@
   </div>
 
   <div class="post-header__struct post-header__struct--close">
-    <span class="tok-punct">};</span> <span class="tok-comment">// end {{ .Title | plainify | title | replaceRE "[^A-Za-z0-9]" "" }}</span>
+    <span class="tok-punct">};</span> <span class="tok-comment">// end {{ .Title | plainify | title | replaceRE "\\s+" "" }}</span>
   </div>
 
   {{ with .Params.tags }}

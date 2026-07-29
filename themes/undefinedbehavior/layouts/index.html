@@ -20,8 +20,13 @@ compilation succeeded: <span class="tok-note">{{ $count }} post{{ if ne $count 1
 <section class="wrap log-section">
   <h1 class="section-heading"><span class="tok-comment">//</span> build log</h1>
   <div class="diag-list">
-    {{ range first 10 $posts.ByDate.Reverse }}
-      {{ partial "post-card.html" . }}
+    {{ $recent := (union $posts $projects).ByDate.Reverse }}
+    {{ range first 10 $recent }}
+      {{ if eq .Type "projects" }}
+        {{ partial "project-card.html" . }}
+      {{ else }}
+        {{ partial "post-card.html" . }}
+      {{ end }}
     {{ end }}
   </div>
   {{ if gt $count 10 }}

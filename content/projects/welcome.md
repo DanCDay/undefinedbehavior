@@ -27,8 +27,8 @@ int main() {
 
     // Using multiple '<<' operators concatenates data to be able to combine text and data
     std::cout << "Hello " << name << ", You'll find all of the projects I've created"
-                                  " through my time learning C++ in this Github "
-                                  "repository." << '\n';
+                                     " through my time learning C++ in this Github "
+                                     "repository." << '\n';
 
     std::cout << "My main resources used for learning C++ have been learncpp.com"
                  " and 'The Cherno' on YouTube, as a passive learning experience"

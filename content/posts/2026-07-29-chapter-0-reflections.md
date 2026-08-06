@@ -2,10 +2,10 @@
 title: "Chapter 0 Introduction / Getting Started"
 date: 2026-07-29T13:44:23+01:00
 draft: false
-lesson: ""            # e.g. "1.6" — the learncpp.com lesson number, leave blank if not applicable
+lesson: "0"            # e.g. "1.6" — the learncpp.com lesson number, leave blank if not applicable
 tags: ["basics"]               # e.g. ["basics", "cherno"]
 resources:             # what you were following along with
-  - "learncpp.com - Chapter 0"
+  - "learncpp.com §0"
 ---
 
 ## Setup
